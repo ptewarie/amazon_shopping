@@ -66,6 +66,18 @@ public class HomePage extends BaseUtil {
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"LED\")" )
     public AndroidElement LEDButton;
 
+
+    public boolean isHomePageLoaded(){
+        boolean status = false;
+        try {
+        this.searchField.isDisplayed();
+        status = true;
+        } catch (Exception e) {
+            System.out.println("page is not loaded :"+ e);
+        }
+        return status;
+
+    }
     public void goToSignInScreen(){
         this.signInButton.click();
     }

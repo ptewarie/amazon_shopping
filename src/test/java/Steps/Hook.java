@@ -13,6 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Hook extends BaseUtil {
 
@@ -30,6 +31,7 @@ public class Hook extends BaseUtil {
         cap.setCapability("appActivity", "com.amazon.mShop.home.HomeActivity");
         cap.setCapability("noReset", true);
         AndroidDriver<AndroidElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         base.driver = driver;
     }
 

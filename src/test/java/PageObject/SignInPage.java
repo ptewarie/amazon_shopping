@@ -30,9 +30,7 @@ public class SignInPage extends BaseUtil {
     private AndroidElement continueButton;
 
 
-    //    @AndroidFindBy(id = "ap_password" )
     @AndroidFindBy(className = "android.widget.EditText" )
-//    @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Amazon\")" )
     private AndroidElement passwordField;
 
     @AndroidFindBy(className = "android.widget.Button" )
