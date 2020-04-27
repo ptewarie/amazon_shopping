@@ -62,6 +62,11 @@ public class SearchResultsPage extends BaseUtil {
             this.selectRandomTv();
         }
 
+        new TouchAction(this.driver)
+                .press(ElementOption.element(this.randomTv.get(randomNumber)))
+                .waitAction(waitOptions(Duration.ofMillis(2000)))
+                .moveTo(ElementOption.element(this.cameraButton)).release().perform();
+
         this.randomTv.get(randomNumber).click();
 
     }

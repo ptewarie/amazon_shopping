@@ -23,6 +23,7 @@ public class Shopping extends BaseUtil {
         this.driver = base.driver;
         this.homePage = new HomePage(driver);
         this.signInPage =   new SignInPage(driver);
+        this.searchResultsPage =   new SearchResultsPage(driver);
     }
 
 
@@ -44,14 +45,13 @@ public class Shopping extends BaseUtil {
 
     @When("I log in the amazon app")
     public void ILogInTheAmazonApp() {
-        signInPage.loginCustomer("*****", "*****"); //ToDo: username and pw in property file
+        signInPage.loginCustomer("*****", "***"); //ToDo: username and pw in property file
 
     }
 
     @When("I search for a 65 inch television")
     public void ISearchForA65InchTelevision() {
         homePage.searchForTvSize65();
-        SearchResultsPage searchResultsPage =   new SearchResultsPage(driver);
         searchResultsPage.turnOnFilterForTvSize65();
         searchResultsPage.selectRandomTv();
     }
