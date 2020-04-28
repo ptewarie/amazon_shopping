@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
+import static jdk.nashorn.internal.objects.NativeArray.lastIndexOf;
 
 
 public class SearchResultsPage extends BaseUtil {
@@ -43,6 +44,22 @@ public class SearchResultsPage extends BaseUtil {
     @AndroidFindBy(className = "android.view.View" )
     public List<AndroidElement> randomTv;
 
+    public boolean isPageLoaded(){
+        boolean status = false;
+
+
+        try {
+            WebDriverWait wait = new WebDriverWait(this.driver, 10000);
+            wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOf(this.filterButton)));
+            this.filterButton.isDisplayed();
+            status = true;
+        } catch (Exception e) {
+            System.out.println("page is not loaded :"+ e);
+        }
+        return status;
+
+    }
+
     public void turnOnFilterForTvSize65() {
         this.filterButton.click();
 
@@ -55,10 +72,13 @@ public class SearchResultsPage extends BaseUtil {
 
     public void selectRandomTv(){
         Random r = new Random();
-        int randomNumber =  r.nextInt((15 - 6) + 1) + 6; //random number between search index
+        int randomNumber =  r.nextInt( 1) + 5; //random number between search index
 
-        //run until the selected tv is not a sponsored advertisement, since these can be a different product
-        if (this.randomTv.get(randomNumber).getText().equalsIgnoreCase("Sponsored")){
+        /*
+        ignore advertisement
+        ignore products that do not have a 65 inch screen size
+        */
+        if (this.randomTv.get(randomNumber).getText().equalsIgnoreCase("Sponsored") || !this.randomTv.get(randomNumber).getText().contains("65")){
             this.selectRandomTv();
         }
 

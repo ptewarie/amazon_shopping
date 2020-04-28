@@ -38,7 +38,6 @@ public class HomePage extends BaseUtil {
     @AndroidFindBy(id = "com.amazon.mShop.android.shopping:id/chrome_action_bar_burger_icon" )
     public AndroidElement actionMenu;
 
-
     @AndroidFindBy(uiAutomator = "new UiSelector().textContains(\"Deliver to\")" )
     public AndroidElement deliveryAddress;
 
@@ -67,7 +66,7 @@ public class HomePage extends BaseUtil {
     public AndroidElement LEDButton;
 
 
-    public boolean isHomePageLoaded(){
+    public boolean isPageLoaded(){
         boolean status = false;
         try {
         this.searchField.isDisplayed();
