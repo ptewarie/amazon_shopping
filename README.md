@@ -41,6 +41,6 @@ mvn test
 After a test run this automation framework will automatically create a report.
 You can find that report under:
 
-**target/site/cucumber-pretty/index.html
+**target/site/cucumber-pretty/index.html**
 
 
