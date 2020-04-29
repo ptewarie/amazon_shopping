@@ -1,3 +1,7 @@
 .idea
 .iml
-/target/
+/target/generated-test-sources
+/target/maven-status
+/target/surefire-reports
+/test-classes
+#reporting is has been been paled here on purpose

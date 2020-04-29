@@ -7,5 +7,4 @@ Feature: Shopping for a new tv
       And   I search for a 65 inch television
       And   I add that item to the cart
       And   I go to shopping cart screen
-      And   I go to the check out screen
     Then    the product details should be correct
